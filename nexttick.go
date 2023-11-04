@@ -72,14 +72,17 @@ func shouldMarkLiving(liveNeighbours int, deadNeighbours int) (living bool) {
 
 	return false
 }
+
 func nextTick(grid [][]bool) (outputGrid [][]bool, success bool) {
 	success = validateInput(grid)
 	if !success {
 		return outputGrid, false
 	}
 
+	outputGrid = make([][]bool, 0)
 	for r, rows := range outputGrid {
-		for c, _ := range rows {
+		outputGrid[r] = make([]bool, len(rows))
+		for c := range rows {
 			liveNeighbours := getLivingNeighboursCount(grid, r, c)
 			deadNeighbours := getDeadNeighboursCount(grid, r, c)
 			outputGrid[r][c] = shouldMarkLiving(liveNeighbours, deadNeighbours)
