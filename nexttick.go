@@ -79,8 +79,8 @@ func nextTick(grid [][]bool) (outputGrid [][]bool, success bool) {
 		return outputGrid, false
 	}
 
-	outputGrid = make([][]bool, 0)
-	for r, rows := range outputGrid {
+	outputGrid = make([][]bool, len(grid))
+	for r, rows := range grid {
 		outputGrid[r] = make([]bool, len(rows))
 		for c := range rows {
 			liveNeighbours := getLivingNeighboursCount(grid, r, c)

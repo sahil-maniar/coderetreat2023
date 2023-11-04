@@ -11,11 +11,6 @@ func TestNextTick(t *testing.T) {
 		input  [][]bool
 		output [][]bool
 	}{
-		// {
-		// 	name:   "Test empty input",
-		// 	input:  make([][]bool, 0),
-		// 	output: make([][]bool, 0),
-		// },
 		{
 			name: "Test single row single column alive",
 			input: [][]bool{
@@ -78,7 +73,6 @@ func TestNextTick(t *testing.T) {
 				{false, false},
 			},
 		},
-		
 	}
 
 	for _, tt := range tests {
